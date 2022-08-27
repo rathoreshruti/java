@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class ch2_ifelse {
+    public static void main(String[]args)
+    {
+        int gen=0;
+        Random num=new Random();
+        for(int counter=1;counter<=10;counter++) {
+           // System.out.println(gen);
+            gen = 1 + num.nextInt(3);
+        }
+       Scanner src= new Scanner(System.in);
+       System.out.println("please enter a number between 1 to 3");
+        int person1 = src.nextInt();
+        int rock=1;
+        int paper=2;
+        int siccsor=3;
+       if ( gen>person1) {
+            System.out.println("you lose the game");
+        } else if (person1>2) {
+           System.out.println("you entered wrong number");
+       }
+       else{
+           System.out.println("you win the match");
+       }
+
+    }
+}
