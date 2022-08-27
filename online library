@@ -1,0 +1,72 @@
+import java.util.Scanner;
+class library {
+    String[] pre = {"life", "vibes", "struggle", "artist", "mind", "money"};
+    int count=pre.length;
+    String[] issued=new String[]{"management","changes"};
+    int bas=issued.length;
+  public void showAvailableBooks(){
+      for (int i=0;i<count;i++){
+          System.out.println(pre[i]);
+      }
+  }
+    public void showIssued(){
+        for (int j=0;j<bas;j++){
+            System.out.println(issued[j]);
+        }
+    }
+  public void returnBooks(String b){
+      String newItem="b";
+      String deduction="one";
+      pre[count++]=newItem;
+     // showAvailableBooks();
+      issuedBooks();
+      issued[bas--]=deduction;
+      showIssued();
+  }
+  public void issuedBooks(){
+      for (int i=0;i<issued.length;i++){
+          System.out.println(issued[i]);
+      }
+  }
+  public void addBooks(String book){
+      showAvailableBooks();
+      String newItem="book";
+      pre[count++]=newItem;
+     showAvailableBooks();
+  }
+}
+
+public class ch10_library {
+    public static void main(String[] args) {
+        library obj=new library();
+        Scanner src=new Scanner(System.in);
+        System.out.println("click 1,2,3 or 4 number :");
+        System.out.println("1.return the book");
+        System.out.println("2.want to see available books");
+        System.out.println("3.want to see your issued books");
+        System.out.println("4. you want to add books in library");
+        int var=src.nextInt();
+        switch (var){
+            case 1:
+                System.out.println("enter the name of the book which you want to return");
+                String a=src.nextLine();
+                obj.returnBooks(a);
+               break;
+            case 2:
+                System.out.println("available books are");
+                obj.showAvailableBooks();
+                break;
+            case 3:
+                System.out.println("your issued books are");
+                obj.issuedBooks();
+                break;
+            case 4:
+                System.out.println("enter the book name which you want to add in library");
+                String add=src.nextLine();
+                obj.addBooks(add);
+            default:
+                System.out.println("you entered wrong number....please try again");
+        }
+
+    }
+}
